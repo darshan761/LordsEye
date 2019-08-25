@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".info">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/code"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
+
+        <Button
+            android:id="@+id/QR"
+            android:layout_width="match_parent"
+            android:layout_height="69dp"
+            android:textSize="32dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="Book" />
+
+        <Button
+            android:id="@+id/direction"
+            android:layout_width="match_parent"
+            android:layout_height="69dp"
+            android:textSize="32dp"
+            android:layout_marginBottom="180dp"
+            android:text="Get Direction" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">LordsEye</string>
+    <string name="title_activity_map">Map</string>
+    <string-array name="vehicles">
+        <item>Car</item>
+        <item>Bike</item>
+        <item>Moped</item>
+        <item>SUV</item>
+    </string-array>
+</resources>

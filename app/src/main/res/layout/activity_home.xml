@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".home">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/maps"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="200dp"
+            android:textSize="32dp"
+            android:padding="2dp"
+            android:text="Show on Maps" />
+
+        <Button
+            android:id="@+id/vehicle"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:padding="2dp"
+            android:layout_marginTop="145dp"
+            android:textSize="32dp"
+            android:text="My Bookings" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
