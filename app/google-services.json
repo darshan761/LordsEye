@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "124287528768-fdl57fdqh3ch67mhk34j3q11caladtqi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lordseye",
+            "certificate_hash": "ba68d7740990fb8dc9e1aa4d80053de6526cda0d"
+          }
+        },
+        {
           "client_id": "124287528768-hjse8n1nvlbj6j769rnu57qk0abftmln.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

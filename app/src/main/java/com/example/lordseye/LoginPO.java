@@ -59,7 +59,7 @@ public class LoginPO extends AppCompatActivity {
                                     // Sign in success, update UI with the signed-in user's information
                                     Log.d(TAG, "signInWithEmail:success");
                                     FirebaseUser user = mAuth.getCurrentUser();
-                                    Intent i = new Intent(LoginPO.this,home.class);
+                                    Intent i = new Intent(LoginPO.this,Home_PO.class);
                                     startActivity(i);
                                     progressDialog.dismiss();
                                     //updateUI(user);

@@ -7,4 +7,5 @@
         <item>Moped</item>
         <item>SUV</item>
     </string-array>
+    <string name="title_activity_show_park">Map</string>
 </resources>

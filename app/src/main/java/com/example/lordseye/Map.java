@@ -2,19 +2,26 @@ package com.example.lordseye;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
+import android.Manifest;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.internal.Constants;
+import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.GeofencingClient;
 import com.google.android.gms.location.GeofencingRequest;
@@ -24,11 +31,20 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.Circle;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -39,121 +55,101 @@ import java.util.ListIterator;
 public class Map extends FragmentActivity implements OnMapReadyCallback
          {
 
-    private GoogleMap mMap;
-    private GeofencingClient geofencingClient;
-    List<Geofence>geofenceList = new ArrayList<>();
-    private PendingIntent geofencePendingIntent;
+             FirebaseDatabase database = FirebaseDatabase.getInstance();
+             DatabaseReference myRef = database.getReference("Operators");
+             Location currentLocation;
+             private String TAG = "Darshan";
+             FusedLocationProviderClient fusedLocationProviderClient;
+             private static final int REQUEST_CODE = 101;
+             @Override
+             protected void onCreate(Bundle savedInstanceState) {
+                 super.onCreate(savedInstanceState);
+                 setContentView(R.layout.activity_map);
+                 fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+                 fetchLocation();
+             }
+             private void fetchLocation() {
+                 if (ActivityCompat.checkSelfPermission(
+                         this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                         this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                     ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_CODE);
+                     return;
+                 }
+                 Task<Location> task = fusedLocationProviderClient.getLastLocation();
+                 task.addOnSuccessListener(new OnSuccessListener<Location>() {
+                     @Override
+                     public void onSuccess(Location location) {
+                         if (location != null) {
+                             currentLocation = location;
+//                             Toast.makeText(getApplicationContext(), currentLocation.getLatitude() + "" + currentLocation.getLongitude(), Toast.LENGTH_SHORT).show();
+                             SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+                             assert supportMapFragment != null;
+                             supportMapFragment.getMapAsync(Map.this);
+                         }
+                     }
+                 });
+             }
+             @Override
+             public void onMapReady(final GoogleMap googleMap) {
+                 LatLng latLng = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
+                 MarkerOptions markerOptions = new MarkerOptions().position(latLng).title("Your Location!");
+                 googleMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+                 googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
+                 googleMap.addMarker(markerOptions);
+                 Circle circle = googleMap.addCircle(new CircleOptions()
+                         .center(latLng)
+                         .radius(500)
+                        .fillColor(0x30ff0000));
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_map);
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
-    }
 
+                 googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                     @Override
+                     public boolean onMarkerClick(Marker marker) {
+                         Intent i = new Intent(Map.this, Operator.class);
+                         i.putExtra("Lat",marker.getPosition().latitude);
+                         i.putExtra("Long",marker.getPosition().longitude);
+                         startActivity(i);
+                         return false;
+                     }
+                 });
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
+                 myRef.addValueEventListener(new ValueEventListener() {
+                     @Override
+                     public void onDataChange(DataSnapshot dataSnapshot) {
 
-        // Add a marker in Sydney and move the camera
+                       for(DataSnapshot i : dataSnapshot.getChildren()){
 
-        geofencingClient = LocationServices.getGeofencingClient(this);
-        GPSTracker gpsTracker = new GPSTracker(this);
+                           String name =  i.child("Name").getValue().toString();
+                           String lat = i.child("Lat").getValue().toString();
+                           String longt = i.child("Long").getValue().toString();
 
-        if (gpsTracker.getIsGPSTrackingEnabled())
-        {
+                           LatLng park = new LatLng(Double.parseDouble(lat), Double.parseDouble(longt));
+                         googleMap.addMarker(new MarkerOptions().position(park)
+                                 .title(name));
+                           Log.d(TAG, "Value is: " + name);
+                           Toast.makeText(getApplicationContext(),"hello"+name,Toast.LENGTH_LONG).show();
+                       }
 
-            LatLng loc = new LatLng(19.1123, 72.9127);
-            LatLng locp1 = new LatLng(19.1259, 72.9215);
-            LatLng locp2 = new LatLng(19.1321, 72.9186);
-          //  LatLng loc = new LatLng(gpsTracker.getLatitude(),gpsTracker.getLongitude());
-            mMap.addMarker(new MarkerOptions().position(loc).title("Your Location"));
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
+//
+                     }
 
-            mMap.addMarker(new MarkerOptions().position(locp1).title("P1"));
-            mMap.addMarker(new MarkerOptions().position(locp2).title("P2"));
-            mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-                @Override
-                public boolean onMarkerClick(Marker marker) {
-                    LatLng position = marker.getPosition();
+                     @Override
+                     public void onCancelled(DatabaseError error) {
+                         // Failed to read value
+                         Log.w(TAG, "Failed to read value.", error.toException());
+                     }
+                 });
 
-                    Log.d("lon",Double.toString(position.latitude));
-                    Intent intent = new Intent(Map.this, info.class);
-                    intent.putExtra("lat", Double.toString(position.latitude));
-                    intent.putExtra("long",Double.toString(position.longitude));
-                    startActivity(intent);
+             }
+             @Override
+             public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+                 switch (requestCode) {
+                     case REQUEST_CODE:
+                         if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                             fetchLocation();
+                         }
+                         break;
+                 }
+             }
 
-                    return false;
-                }
-            });            geofenceList.add(new Geofence.Builder()
-                    // Set the request ID of the geofence. This is a string to identify this
-                    // geofence.
-                    .setRequestId("MYloction")
-                    .setCircularRegion(
-                            19.1123,
-                            72.9127,
-                            1000
-                    )
-                    .setExpirationDuration(5000000)
-                    .setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER |
-                            Geofence.GEOFENCE_TRANSITION_EXIT)
-                    .build());
-
-            geofencingClient.addGeofences(getGeofencingRequest(), getGeofencePendingIntent())
-                    .addOnSuccessListener(this, new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            Toast.makeText(Map.this,"GEOOOOO",Toast.LENGTH_SHORT).show();
-                        }
-                    })
-                    .addOnFailureListener(this, new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            // Failed to add geofences
-                            // ...
-                            Toast.makeText(Map.this,"FILED",Toast.LENGTH_SHORT).show();
-                        }
-                    });
-        }
-        else
-        {
-            // can't get location
-            // GPS or Network is not enabled
-            // Ask user to enable GPS/network in settings
-            gpsTracker.showSettingsAlert();
-            //Toast.makeText(Map.this,"Enable GPS",Toast.LENGTH_SHORT).show();
-        }
-
-    }
-    private GeofencingRequest getGeofencingRequest() {
-        GeofencingRequest.Builder builder = new GeofencingRequest.Builder();
-        builder.setInitialTrigger(GeofencingRequest.INITIAL_TRIGGER_ENTER);
-        builder.addGeofences(geofenceList);
-        return builder.build();
-    }
-    private PendingIntent getGeofencePendingIntent() {
-        // Reuse the PendingIntent if we already have it.
-        if (geofencePendingIntent != null) {
-            return geofencePendingIntent;
-        }
-        Intent intent = new Intent(this, GeofenceBroadcastReceiver.class);
-        // We use FLAG_UPDATE_CURRENT so that we get the same pending intent back when
-        // calling addGeofences() and removeGeofences().
-        geofencePendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.
-                FLAG_UPDATE_CURRENT);
-        return geofencePendingIntent;
-    }
 }
