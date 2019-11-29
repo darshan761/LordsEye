@@ -96,6 +96,7 @@ public class Map extends FragmentActivity implements OnMapReadyCallback
                  googleMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
                  googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
                  googleMap.addMarker(markerOptions);
+
                  Circle circle = googleMap.addCircle(new CircleOptions()
                          .center(latLng)
                          .radius(500)
@@ -127,7 +128,7 @@ public class Map extends FragmentActivity implements OnMapReadyCallback
                          googleMap.addMarker(new MarkerOptions().position(park)
                                  .title(name));
                            Log.d(TAG, "Value is: " + name);
-                           Toast.makeText(getApplicationContext(),"hello"+name,Toast.LENGTH_LONG).show();
+//                           Toast.makeText(getApplicationContext(),"hello"+name,Toast.LENGTH_LONG).show();
                        }
 
 //

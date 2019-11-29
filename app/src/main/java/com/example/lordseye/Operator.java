@@ -17,11 +17,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.google.zxing.WriterException;
 
 import androidmads.library.qrgenearator.QRGContents;
@@ -30,9 +33,11 @@ import androidmads.library.qrgenearator.QRGEncoder;
 public class Operator extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("Operators");
-    private TextView name, car, bike, Address;
+    StorageReference mImageRef =
+            FirebaseStorage.getInstance().getReference("image/test.jpg");
+    private TextView name, car, bike, Address, car_p, bike_p;
     private Button getdirection, book;
-    private ImageView qrImage;
+    private ImageView qrImage, parking_img;
     String inputValue;
     Bitmap bitmap;
     QRGEncoder qrgEncoder;
@@ -47,17 +52,20 @@ public class Operator extends AppCompatActivity {
         final Double longg = intent.getExtras().getDouble("Long");
         name =findViewById(R.id.name);
         car = findViewById(R.id.car);
+        car_p = findViewById(R.id.car_p);
         Address = findViewById(R.id.address);
         bike = findViewById(R.id.bike);
+        bike_p = findViewById(R.id.bike_p);
         getdirection = findViewById(R.id.getdir);
         book = findViewById(R.id.book);
         qrImage = findViewById(R.id.QR);
+        parking_img = findViewById(R.id.parking_pic);
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot ds: dataSnapshot.getChildren()){
-                    Toast.makeText(getApplicationContext(),ds.child("Lat").getValue().toString(),Toast.LENGTH_LONG).show();
+//                    Toast.makeText(getApplicationContext(),ds.child("Lat").getValue().toString(),Toast.LENGTH_LONG).show();
                     if(ds.child("Lat").getValue().toString().equals(Double.toString(lat)) &&
                             ds.child("Long").getValue().toString().equals(Double.toString(longg))){
                         inputValue = ds.getKey();
@@ -65,6 +73,11 @@ public class Operator extends AppCompatActivity {
                        Address.setText(ds.child("Address").getValue().toString());
                        car.setText(ds.child("Car").getValue().toString());
                        bike.setText(ds.child("Bike").getValue().toString());
+                       car_p.setText(ds.child("Bike_p").getValue().toString());
+                       bike_p.setText(ds.child("Car_p").getValue().toString());
+                       String url= ds.child("Img").getValue().toString();//Retrieved url as mentioned above
+                        Glide.with(getApplicationContext()).load(url).into(parking_img);
+
                     }
                 }
             }
