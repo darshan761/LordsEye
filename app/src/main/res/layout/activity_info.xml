@@ -26,6 +26,7 @@
             android:textSize="32dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
+            android:background="@drawable/darkborderbutton"
             android:text="Book" />
 
         <Button
@@ -34,6 +35,7 @@
             android:layout_height="69dp"
             android:textSize="32dp"
             android:layout_marginBottom="180dp"
+            android:background="@drawable/darkborderbutton"
             android:text="Get Direction" />
     </LinearLayout>
 

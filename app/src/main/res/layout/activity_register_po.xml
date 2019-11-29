@@ -53,6 +53,7 @@
             android:layout_height="wrap_content"
             android:ems="15"
             android:layout_marginTop="20dp"
+            android:background="@drawable/darkborderbutton"
             android:text="Register" />
     </LinearLayout>
 

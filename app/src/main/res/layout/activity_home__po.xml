@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Home_PO">
+    tools:context=".Home_PO"
+    android:background="@drawable/whitetexture">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="30dp"
+            android:background="@drawable/darkborderbutton"
             android:text="Add New Parking" />
 
         <Button
@@ -29,6 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="30dp"
+            android:background="@drawable/darkborderbutton"
             android:text="Show Parkings" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,7 +28,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="15"
-            android:layout_marginTop="20dp"            android:hint="Enter email"
+            android:layout_marginTop="20dp"
+            android:hint="Enter email"
             android:inputType="textEmailAddress" />
 
         <EditText
@@ -36,7 +37,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="15"
-            android:layout_marginTop="20dp"            android:hint="Enter phone"
+            android:layout_marginTop="20dp"
+            android:hint="Enter phone"
             android:inputType="phone" />
 
         <Spinner
@@ -51,25 +53,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="15"
-            android:layout_marginTop="20dp"            android:hint="Enter vehicle name"
+            android:layout_marginTop="20dp"
+            android:hint="Enter vehicle name"
             android:inputType="textPersonName"
-            android:text="Name" />
+            android:text="Company Name" />
 
         <EditText
             android:id="@+id/vehicle_no"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="15"
-            android:layout_marginTop="20dp"            android:hint="Enter vehicle number"
+            android:layout_marginTop="20dp"
+            android:hint="Enter vehicle number"
             android:inputType="textPersonName"
-            android:text="Name" />
+            android:text="Model Name" />
 
         <EditText
             android:id="@+id/Pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="15"
-            android:layout_marginTop="20dp"            android:hint="Enter Password"
+            android:layout_marginTop="20dp"
+            android:hint="Enter Password"
             android:inputType="textPassword" />
 
         <Button
@@ -78,6 +83,7 @@
             android:layout_height="wrap_content"
             android:ems="15"
             android:layout_marginTop="20dp"
+            android:background="@drawable/darkborderbutton"
             android:text="Register" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
