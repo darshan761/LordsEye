@@ -17,9 +17,11 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="match_parent"
+            android:layout_width="260dp"
             android:layout_height="214dp"
+            android:layout_gravity="center"
             android:layout_marginTop="20dp"
+            android:background="@drawable/round_corner"
             android:src="@drawable/lordseyelogo" />
 
         <Button
