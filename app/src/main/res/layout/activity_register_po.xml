@@ -27,7 +27,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="15"
-            android:layout_marginTop="20dp"            android:hint="Enter email"
+            android:layout_marginTop="20dp"
+            android:hint="Enter email"
             android:inputType="textEmailAddress" />
 
         <EditText
@@ -35,7 +36,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="15"
-            android:layout_marginTop="20dp"            android:hint="Enter phone"
+            android:layout_marginTop="20dp"
+            android:hint="Enter phone"
             android:inputType="phone" />
 
 
@@ -44,7 +46,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="15"
-            android:layout_marginTop="20dp"            android:hint="Enter Password"
+            android:layout_marginTop="20dp"
+            android:hint="Enter Password"
             android:inputType="textPassword" />
 
         <Button
