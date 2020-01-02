@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+ xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Operator">
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -145,15 +148,37 @@
             android:layout_height="wrap_content"
             android:text="Get Direction" />
 
-        <Button
-            android:id="@+id/book"
-            android:background="@drawable/darkborderbutton1"
-            android:layout_marginTop="30dp"
-            android:textSize="27dp"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Book" />
+            android:layout_height="match_parent">
 
+
+            <Button
+                android:id="@+id/book"
+                android:layout_width="153dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/darkborderbutton1"
+                android:text="Book"
+                android:textSize="27dp" />
+
+
+            <Button
+                android:id="@+id/status"
+                android:layout_width="161dp"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/book"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="188dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="22dp"
+                android:background="@drawable/darkborderbutton1"
+                android:text="Status"
+                android:textSize="27dp" />
+
+        </RelativeLayout>
 
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>

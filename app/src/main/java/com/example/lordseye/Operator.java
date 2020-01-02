@@ -36,7 +36,7 @@ public class Operator extends AppCompatActivity {
     StorageReference mImageRef =
             FirebaseStorage.getInstance().getReference("image/test.jpg");
     private TextView name, car, bike, Address, car_p, bike_p;
-    private Button getdirection, book;
+    private Button getdirection, book, status;
     private ImageView qrImage, parking_img;
     String inputValue;
     Bitmap bitmap;
@@ -60,6 +60,7 @@ public class Operator extends AppCompatActivity {
         book = findViewById(R.id.book);
         qrImage = findViewById(R.id.QR);
         parking_img = findViewById(R.id.parking_pic);
+        status = findViewById(R.id.status);
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -88,6 +89,15 @@ public class Operator extends AppCompatActivity {
             }
         });
 
+        status.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+            }
+        });
+
+
         getdirection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,7 +109,6 @@ public class Operator extends AppCompatActivity {
 
             }
         });
-
         book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
