@@ -93,6 +93,11 @@ public class Operator extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                //DatabaseReference myRef = database.getReference();
+                Toast.makeText(getApplicationContext(),"No. of Cars Detected : ",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"No. of Parking Slots Available : ",Toast.LENGTH_LONG).show();
+
+
 
             }
         });
