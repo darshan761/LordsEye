@@ -117,7 +117,7 @@ public class Operator extends AppCompatActivity {
         book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                inputValue = "Darshan";
+//                inputValue = "BHAVYA";
                 if (inputValue.length() > 0) {
                     WindowManager manager = (WindowManager) getSystemService(WINDOW_SERVICE);
                     Display display = manager.getDefaultDisplay();
