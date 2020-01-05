@@ -8,4 +8,5 @@
         <item>SUV</item>
     </string-array>
     <string name="title_activity_show_park">Map</string>
+    <string name="title_activity_maps_po">Map</string>
 </resources>

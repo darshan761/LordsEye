@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Operator">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/parking_pic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/name"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:textSize="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name" />
+
+        <TextView
+            android:id="@+id/address"
+            android:gravity="center"
+            android:textSize="25dp"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Address" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:stretchColumns="1">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                >
+
+                <TextView
+                    android:background="@drawable/cell_shape"
+                    android:padding="3dip"
+                    android:textStyle="bold"
+                    android:text="Vehicle Type"
+                    android:textSize="17dp"
+                    />
+
+                <TextView
+                    android:background="@drawable/cell_shape"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:textStyle="bold"
+                    android:text="  No of vehicle "
+                    android:textSize="17dp"
+                    />
+
+                <TextView
+                    android:background="@drawable/cell_shape"
+                    android:gravity="right"
+                    android:padding="3dip"
+                    android:textStyle="bold"
+                    android:text="Price per hour"
+                    android:textSize="17dp"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:background="@drawable/cell_shape"
+                    android:padding="3dip"
+                    android:text="Car"
+                    android:gravity="center"
+                    />
+
+                <TextView
+                    android:background="@drawable/cell_shape"
+                    android:id="@+id/car"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text="  100" />
+
+                <TextView
+                    android:background="@drawable/cell_shape"
+                    android:id="@+id/car_p"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text="20"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:background="@drawable/cell_shape"
+                    android:padding="3dip"
+                    android:gravity="center"
+                    android:text="Bike" />
+
+                <TextView
+                    android:background="@drawable/cell_shape"
+                    android:id="@+id/bike"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text="  200" />
+
+                <TextView
+                    android:background="@drawable/cell_shape"
+                    android:id="@+id/bike_p"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text="10"/>
+            </TableRow>
+        </TableLayout>
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,7 +21,7 @@
             android:layout_marginTop="20dp"
             android:hint="Enter name"
             android:inputType="textPersonName"
-            android:text="Name" />
+             />
 
         <EditText
             android:id="@+id/Address"
@@ -41,13 +41,50 @@
             android:inputType="text" />
 
 
+
         <EditText
-            android:id="@+id/Pass"
+            android:id="@+id/lat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="15"
-            android:layout_marginTop="20dp"            android:hint="Enter Password"
-            android:inputType="text" />
+            android:ems="10"
+            android:hint="Enter Latitude"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/longt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Enter Longitude"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Car Count" />
+
+        <EditText
+            android:id="@+id/car_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number" />
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bike Count" />
+
+        <EditText
+            android:id="@+id/bike_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number" />
 
         <Button
             android:id="@+id/add"
