@@ -33,5 +33,16 @@
             android:textSize="30dp"
             android:background="@drawable/darkborderbutton"
             android:text="Show Parkings" />
+
+        <Button
+            android:id="@+id/map_image_parking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/darkborderbutton"
+            android:text="Add/Update map parking"
+            android:textSize="30dp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

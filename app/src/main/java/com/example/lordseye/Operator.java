@@ -96,9 +96,6 @@ public class Operator extends AppCompatActivity {
                 //DatabaseReference myRef = database.getReference();
                 Toast.makeText(getApplicationContext(),"No. of Cars Detected : 2 ",Toast.LENGTH_LONG).show();
                 Toast.makeText(getApplicationContext(),"No. of Parking Slots Available : 1 ",Toast.LENGTH_LONG).show();
-
-
-
             }
         });
 
