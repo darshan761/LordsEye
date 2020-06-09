@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/blurbackgroundparking">
+    android:background="@drawable/blurbackgroundparking"
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
         android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
         android:orientation="vertical">
 
         <ImageView
@@ -29,30 +29,33 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:textSize="32dp"
-            android:textColor="#ffffff"
             android:background="@drawable/lightborderbutton"
-            android:text="Driver" />
+            android:backgroundTint="#FFFFFF"
+            android:text="Driver"
+            android:textColor="#000"
+            android:textSize="32dp" />
 
         <Button
             android:id="@+id/Operator"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:textSize="32dp"
-            android:textColor="#ffffff"
             android:background="@drawable/lightborderbutton"
-            android:text="Operator" />
+            android:backgroundTint="#FFFFFF"
+            android:text="Operator"
+            android:textColor="#000"
+            android:textSize="32dp" />
 
         <Button
             android:id="@+id/traffic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:textSize="32dp"
-            android:textColor="#ffffff"
             android:background="@drawable/lightborderbutton"
-            android:text="Traffic police" />
+            android:backgroundTint="#FFFFFF"
+            android:text="Traffic police"
+            android:textColor="#000"
+            android:textSize="32dp" />
 
         <Button
             android:id="@+id/event"
@@ -60,8 +63,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:background="@drawable/lightborderbutton"
+            android:backgroundTint="#FFFFFF"
             android:text="Event Organizer"
-            android:textColor="#ffffff"
+            android:textColor="#000"
             android:textSize="32dp" />
     </LinearLayout>
 

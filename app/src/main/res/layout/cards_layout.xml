@@ -80,7 +80,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
-                android:background="@color/design_default_color_primary_dark"
+                android:background="#0C8811"
                 android:padding="10dp"
                 android:text="Get Directions"
                 android:textColor="@android:color/white"
