@@ -184,7 +184,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="22dp"
                 android:background="@drawable/darkborderbutton1"
-                android:text="Status"
+                android:text="Gpay"
                 android:textSize="27dp" />
 
         </RelativeLayout>
