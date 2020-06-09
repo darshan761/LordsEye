@@ -73,6 +73,20 @@
                 android:textSize="18sp"
                 android:textStyle="bold"></Button>
 
+            <Button
+                android:id="@+id/echallan2"
+                android:layout_width="168dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:background="@color/design_default_color_primary_dark"
+                android:padding="10dp"
+                android:text="Get Directions"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"></Button>
+
 
         </LinearLayout>
 
