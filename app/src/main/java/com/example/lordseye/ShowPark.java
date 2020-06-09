@@ -40,8 +40,8 @@ public class ShowPark extends FragmentActivity implements OnMapReadyCallback {
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        LatLng sydney = new LatLng(19.2388106, 72.8558027);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("You're Here !"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 }

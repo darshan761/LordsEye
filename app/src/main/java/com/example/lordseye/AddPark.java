@@ -36,8 +36,6 @@ public class AddPark extends AppCompatActivity {
         name = findViewById(R.id.Name);
         address = findViewById(R.id.Address);
         mobile = findViewById(R.id.mobile);
-        lat  = findViewById(R.id.lat);
-        longt = findViewById(R.id.longt);
         car = findViewById(R.id.car_count);
         bike = findViewById(R.id.bike_count);
         add_parking  = findViewById(R.id.add);
@@ -53,8 +51,6 @@ public class AddPark extends AppCompatActivity {
                 op.put("Name",name.getText().toString());
                 op.put("email",address.getText().toString());
                 op.put("mobile",mobile.getText().toString());
-                op.put("Lat",lat.getText().toString());
-                op.put("Long",longt.getText().toString());
                 op.put("Car",car.getText().toString());
                 op.put("Bike",bike.getText().toString());
                 myRef.child("Operators").push().setValue(op);

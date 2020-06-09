@@ -13,6 +13,8 @@
         android:layout_marginLeft="20dp"
         android:orientation="vertical">
 
+
+
         <EditText
             android:id="@+id/Name"
             android:layout_width="match_parent"
