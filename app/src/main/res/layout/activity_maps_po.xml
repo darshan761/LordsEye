@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Map" >
+
 <fragment xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,4 +13,14 @@
     android:name="com.google.android.gms.maps.SupportMapFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MapsPO" />
+    tools:context=".MapsPO"/>
+
+    <View
+    android:id="@+id/rectangle"
+    android:layout_width="411dp"
+    android:layout_height="163dp"
+    android:layout_marginTop="636dp"
+    android:background="@drawable/rectangle_2" />
+
+
+</FrameLayout>
