@@ -45,7 +45,7 @@
             android:layout_marginTop="120dp"
             android:layout_marginRight="30dp"
             android:background="@drawable/darkborderbutton"
-            android:text="Add Map PARKING"
+            android:text="Add Parking Map"
             android:textSize="30dp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
