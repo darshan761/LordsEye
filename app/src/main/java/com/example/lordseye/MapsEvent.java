@@ -36,18 +36,25 @@ public class MapsEvent extends FragmentActivity implements OnMapReadyCallback{
         Polyline polyline1 = googleMap.addPolyline(new PolylineOptions()
                 .clickable(true)
                 .add(
-                        new LatLng(-35.016, 143.321),
-                        new LatLng(-34.747, 145.592),
-                        new LatLng(-34.364, 147.891),
-                        new LatLng(-33.501, 150.217),
-                        new LatLng(-32.306, 149.248),
-                        new LatLng(-32.491, 147.309)));
+                        new LatLng(19.211970, 72.872995),
+                        new LatLng(19.211342, 72.872952),
+                        new LatLng(19.211354, 72.872702),
+                        new LatLng(19.210977, 72.872028),
+                        new LatLng(19.210519, 72.871749),
+                        new LatLng(19.210327, 72.871848),
+                        new LatLng(19.210314, 72.872102),
+                        new LatLng(19.210318, 72.872684)
+                ));
+
+
+
 
         polyline1.setTag("A");
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(-23.684, 133.903), 4));
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("John Parking"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(19.210623, 72.872968), 17));
+        LatLng sydney = new LatLng(19.210623, 72.872968);
+//        19.210326, 72.873075
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Ongoing Ganpati Festival "));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 

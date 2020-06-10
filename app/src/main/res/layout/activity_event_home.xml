@@ -19,25 +19,25 @@
         <ImageView
             android:id="@+id/gdd"
             android:layout_width="match_parent"
-            android:layout_height="185dp"
+            android:layout_height="180dp"
             android:src="@drawable/gdd" />
 
         <ImageView
-        android:id="@+id/ganesh"
-        android:layout_width="match_parent"
-        android:layout_height="193dp"
-        android:src="@drawable/ganesh" />
+            android:id="@+id/ganesh"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:src="@drawable/ganesh" />
 
         <ImageView
             android:id="@+id/ipl"
             android:layout_width="match_parent"
-            android:layout_height="193dp"
+            android:layout_height="180dp"
             android:src="@drawable/ipl" />
 
         <ImageView
             android:id="@+id/sunburn"
             android:layout_width="match_parent"
-            android:layout_height="193dp"
+            android:layout_height="170dp"
             android:src="@drawable/sunburn" />
 
     </LinearLayout>
