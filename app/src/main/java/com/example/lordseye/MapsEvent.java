@@ -46,16 +46,14 @@ public class MapsEvent extends FragmentActivity implements OnMapReadyCallback{
                         new LatLng(19.210318, 72.872684)
                 ));
 
-
-
-
         polyline1.setTag("A");
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(19.210623, 72.872968), 17));
+
         LatLng sydney = new LatLng(19.210623, 72.872968);
 //        19.210326, 72.873075
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Ongoing Ganpati Festival "));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Parking for Ganpati Festival"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(19.210623, 72.872968), 17));
+        // mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 
 }

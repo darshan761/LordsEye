@@ -10,7 +10,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="-70dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:src="@drawable/operator2" />
 
         <Button
             android:id="@+id/add_parking"
@@ -18,10 +26,10 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="30dp"
             android:background="@drawable/darkborderbutton"
-            android:text="Add New Parking"
+            android:text="Add Parking Details"
             android:textSize="30dp" />
 
         <Button
@@ -30,22 +38,22 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="60dp"
             android:layout_marginRight="30dp"
             android:background="@drawable/darkborderbutton"
-            android:text="Show Parkings"
+            android:text="Add Location"
             android:textSize="30dp" />
 
         <Button
             android:id="@+id/map_image_parking"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="80dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="60dp"
             android:layout_marginRight="30dp"
             android:background="@drawable/darkborderbutton"
-            android:text="Add Parking Map"
+            android:text="App Parking Map"
             android:textSize="30dp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
